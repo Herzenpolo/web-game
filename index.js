@@ -1,21 +1,4 @@
-console.log(`hello`)
-
-
-// adding button function to answers
-
-
-
-let questionHolder = document.querySelectorAll(`.question-holder`)
-
-document.querySelector(".btn1").addEventListener("click", () => {
-    document.querySelector(".btn1").className = "btn-wrong"
-})//sets the click event on answer button
-document.querySelector(".btn2").addEventListener("click", () => {
-    document.querySelector(".btn2").className = "btn-right"
-})
-document.querySelector(".btn3").addEventListener("click", (e) => console.log(e.target))
-
-document.querySelector(`.btn1`).value.includes(`Hello`) ? document.querySelector(".btn1").className = "btn-right" :console.log('no')
+//DOM
 
 /* To set the right answe I will create an array containing all of the right answers and using the
 ternary function above I will check the content of the buttons against this array, this will add the 
@@ -24,7 +7,9 @@ class .btn right.
 I need to create an array of all the questions and 3 arrays with possible answers. add an event listener to 
 the class btn-right and on click will change all of the options*/
 
-var questionArr = [
+
+
+ var questionArr = [
     `What is the name of Han Solo’s ship?`, 
     `What is the weapon used by Jedi Knights?`,
     `Which young Jedi Knight becomes Darth Vader in Star Wars: Episode III Revenge of the Sith?`,
@@ -57,7 +42,7 @@ var questionArr = [
     `Complete this line from A New Hope: “The ____________ Wastes are not to be traveled lightly."`,
     `Who preceded Senator Palpatine as Chancellor of the Galactic Senate?`,
     `How many engines are on an X-wing fighter?`,
-    `Bail Organa is Princess Leia’s adoptive father. What is her adoptive mother’s name?`,
+    `Bail Organa is Princess Leia’s adoptive father. What is her adoptive mother’s name?`
 ]
 
 var rightAnswers = [
@@ -67,7 +52,7 @@ var rightAnswers = [
     `Yoda`,
     `Chewie`,
     `Padmé Amidala`,
-    `12`
+    `12`,
     `because he lacked patience`,
     `The Force`,
     `The Sith`,
@@ -95,3 +80,180 @@ var rightAnswers = [
     `4`,
     `Queen Breha Organa`
 ]
+
+let btn1 = [
+    `Millennium Falcon`,
+    `Lightsaber`,
+    `Anakin Skywalker`,
+    `Yoda`,
+    `Chewie`,
+    `Padmé Amidala`,
+    `12`,
+    `because he lacked patience`,
+    `The Force`,
+    `The Sith`,
+    `Luke I am your Father`,
+    `Hippos`,
+    `Ethiopia`,
+    `Return of the Jedi`,
+    `Forbes`,
+    `Harrison Ford`,
+    `Ice Crystals`,
+    `6 pounds`,
+    `Star Wars: Episode V The Empire Strikes Back`,
+    `Isaac Newton`,
+    `Tatooine`,
+    `Jabush`,
+    `tintin gas`,
+    `Sand People`,
+    `Jedi`,
+    `L3's memory drive`,
+    `Purple`,
+    `Naboo`,
+    `Chancellor Organa`,
+    `2`,
+    `Padme`,
+    // enter the wong answers for indexes 10-
+]
+
+let btn2 = [
+    // enter wrong answers for indexes 1-9
+    `“May the Force be with you.”`,
+    `Elephants`,
+    `Australia`,
+    `Attack of the Clones`,
+    `Time`,
+    `Ewan McGregor`,
+    `Ilum crystals`,
+    `8 pounds`,
+    `Star Wars: Episode IV A New Hope`,
+    // enter wrong answers for indexes 19 or more 
+]
+
+let btn3 = [
+   // write in answers for all indexes before 18 and before 
+    `Albert Einstein`,
+    `Naboo`,
+    `Logray`,
+    `Tibanna gas`,
+    `All Terrain-Armored Transport`,
+    `Kashyyyk`,
+    `Ugnaughts`,
+    `Mandalorian`,
+    `The YT-1300 stock light freighter`,
+    `Green`,
+    `Jundland`,
+    `Chancellor Valorum`,
+    `4`,
+    `Queen Breha Organa`
+]
+
+// random index generator
+let rand = Math.floor(Math.random() * questionArr.length) 
+
+// Conditional statements establishing right question
+rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong")
+rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong")
+rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
+
+// event listeners for buttons 
+ document.querySelector(".btn1").addEventListener("click", function(e){ // first button
+     console.log(e.target)
+ })
+
+ document.querySelector(".btn2").addEventListener("click", function(e){ // second button 
+    console.log(e.target)
+})
+
+document.querySelector(".btn3").addEventListener("click", function(e){ // third button 
+    console.log(e.target)
+})
+
+document.querySelector(".start-btn").addEventListener("click", function(e){ // start-button  
+    console.log(e.target)
+})
+
+
+
+// random question generator
+
+const randomQuestion = () => {
+    document.querySelector("#question").innerHTML = questionArr[rand]
+    document.querySelector(".btn1").value = btn1[rand]
+    document.querySelector(".btn2").value = btn2[rand]
+    document.querySelector(".btn3").value = btn3[rand]
+
+}
+
+randomQuestion()
+// canvas 
+ 
+    const ctx = canvas.getContext('2d');
+    let animateId = null;
+  
+    
+    let i = 500
+    let j = 500
+
+    let millFalconImg = new Image ()
+    millFalconImg.src = './Images/Millennium-Falcon-Star-Wars-PNG-Image.png'
+    millFalconImg.onload = function(e) {
+      drawMillFalcon()
+    }
+
+  const drawMillFalcon = () => {
+      ctx.drawImage(milleniumFalcon.image, milleniumFalcon.x, milleniumFalcon.y, 150, 100) //sets properties and size of the road immage
+    }
+
+    milleniumFalcon ={
+      x: 60,
+      y: i,
+      image: millFalconImg  // makes an object of the road image, we can refer to this later 
+    }
+
+    let starDestroyerImg = new Image ()
+    starDestroyerImg.src = './Images/Star-Destroyer-PNG-Photo-Image.png'
+    starDestroyerImg.onload = function(e) {
+      drawStarDestroyer()
+    }
+
+  const drawStarDestroyer = () => {
+      ctx.drawImage(starDestroyer.image, starDestroyer.x, starDestroyer.y -= 0.2, 100, 75) //sets properties and size of the road immage
+    }
+
+    starDestroyer ={
+      x: 250,
+      y: j,
+      image: starDestroyerImg  // makes an object of the road image, we can refer to this later 
+    }
+
+    let finishLineImg = new Image ()
+    finishLineImg.src = './Images/Finish-Line-PNG-HD.png'
+    finishLineImg.onload = function(e) {
+        drawFinishLine()
+    }
+
+    const drawFinishLine = () => {
+        ctx.drawImage(finishLine.image, finishLine.x, finishLine.y, 450, 100)
+    }
+
+    finishLine = {
+        x: 0,
+        y: 10,
+        image: finishLineImg
+    }
+
+
+      function animate(){ //Where the magic happens
+        ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
+        
+        drawMillFalcon()
+        drawStarDestroyer()
+        drawFinishLine()
+    
+
+        animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
+    }
+    animate()
+  
+    function startGame() {};
