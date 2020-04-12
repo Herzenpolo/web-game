@@ -96,7 +96,7 @@ canvas {
 }
 
 #instructions #p5 {
-    font-size: 0.9em;
+    font-size: 0.8em;
    
 }
 
@@ -105,6 +105,23 @@ canvas {
 
 }
 
+#instructions #p7 {
+    font-size: 1.2em;
+
+}
+
 hr {
     width: 50%;
+}
+
+.btn-wrong {
+    color: red;
+    background: transparent;
+}
+
+.btn-right {
+    width: 50%;
+    text-align: center;
+    margin: 1em 0 1em 0;
+    background-color: transparent;
 }
