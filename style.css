@@ -1,6 +1,6 @@
 * {
     /* border: white solid 1px; */
-    transition: all 2s;
+    transition: all 1s;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #FFE81F;
     /* border: white 1px solid */
@@ -61,10 +61,10 @@ header {
 
 }
 
-
+/* 
 canvas {
     border: black 1px solid;
-}
+} */
 
 #instructions {
     text-align: center;
@@ -113,11 +113,6 @@ canvas {
 
 hr {
     width: 50%;
-}
-
-.btn-wrong {
-    color: red;
-    background: transparent;
 }
 
 .btn-right {

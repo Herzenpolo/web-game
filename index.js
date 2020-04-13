@@ -210,21 +210,21 @@ random = randomIndex()
 // rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
 
 // event listeners for buttons 
- document.querySelector(".btn1").addEventListener("click", function(e){ // first button
-     console.log(e.target)
- })
+//  document.querySelector(".btn1").addEventListener("click", function(e){ // first button
+//      console.log(e.target)
+//  })
 
- document.querySelector(".btn2").addEventListener("click", function(e){ // second button 
-    console.log(e.target)
-})
+//  document.querySelector(".btn2").addEventListener("click", function(e){ // second button 
+//     console.log(e.target)
+// })
 
-document.querySelector(".btn3").addEventListener("click", function(e){ // third button 
-    console.log(e.target)
-})
+// document.querySelector(".btn3").addEventListener("click", function(e){ // third button 
+//     console.log(e.target)
+// })
 
-document.querySelector(".start-btn").addEventListener("click", function(e){ // start-button  
-    console.log(e.target)
-})
+// document.querySelector(".start-btn").addEventListener("click", function(e){ // start-button  
+//     console.log(e.target)
+// })
 
 
 
@@ -255,7 +255,27 @@ const randomQuestion = () => {
 }
 
 randomQuestion()
-// canvas 
+
+const questionChange = () => {
+  document.querySelector(".btn1").addEventListener("click", function(e) { 
+    document.querySelector(".btn1").classList.contains("btn-wrong") ? document.querySelector(".btn1").style.color='red' : null
+  })
+  document.querySelector(".btn2").addEventListener("click", function(e) { 
+    document.querySelector(".btn2").classList.contains("btn-wrong") ? document.querySelector(".btn2").style.color='red' : null
+  })
+  
+  document.querySelector(".btn3").addEventListener("click", function(e) { 
+    document.querySelector(".btn3").classList.contains("btn-wrong") ?  document.querySelector(".btn3").style.color='red' : null
+  })
+
+document.querySelector(".btn-right").addEventListener("click", function(e){ // third button 
+  randomQuestion()
+  milleniumFalcon.y -= 100
+})
+}
+
+questionChange()
+canvas 
  
     const ctx = canvas.getContext('2d');
     let animateId = null;
@@ -312,6 +332,29 @@ randomQuestion()
         image: finishLineImg
     }
 
+    function detectCollisionMilleniumFalcon(){
+      var rect1 = {x: milleniumFalcon.x, y: milleniumFalcon.y, width: 150, height: 100}
+      var rect2 = {x: 0, y: 10, width: 450, height: 100}
+
+if (rect1.x < rect2.x + rect2.width &&
+   rect1.x + rect1.width > rect2.x &&
+   rect1.y < rect2.y + rect2.height &&
+   rect1.y + rect1.height > rect2.y) {
+     return true
+   }
+}
+
+function detectCollisionStarDestroyer(){
+  var rect1 = {x: starDestroyer.x, y: starDestroyer.y, width: 100, height: 75}
+  var rect2 = {x: 0, y: 10, width: 450, height: 100}
+
+if (rect1.x < rect2.x + rect2.width &&
+rect1.x + rect1.width > rect2.x &&
+rect1.y < rect2.y + rect2.height &&
+rect1.y + rect1.height > rect2.y) {
+ return true
+}
+}
 
       function animate(){ //Where the magic happens
         ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
@@ -319,7 +362,8 @@ randomQuestion()
         drawMillFalcon()
         drawStarDestroyer()
         drawFinishLine()
-    
+        if(detectCollisionMilleniumFalcon())return
+        if(detectCollisionStarDestroyer())return
 
         animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
     }
