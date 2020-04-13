@@ -401,11 +401,13 @@ drawFinishLine()
 if(detectCollisionMilleniumFalcon()){
   alert('You win this round')
   milleniumFalcon.y = 500 // create round function to reflect current round and do scoring based on the round
+  starDestroyer.y = 500
 }
 if(detectCollisionStarDestroyer()){
   // alert `Computer takes this round`     
   alert('Computer wins this round')
   starDestroyer.y = 500
+  milleniumFalcon.y = 500
 }
 
 animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
