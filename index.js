@@ -7,7 +7,7 @@ class .btn right.
 I need to create an array of all the questions and 3 arrays with possible answers. add an event listener to 
 the class btn-right and on click will change all of the options*/
 
-
+// question and variable arrays
 
  var questionArr = [
     `What is the name of Han Solo’s ship?`, 
@@ -42,7 +42,7 @@ the class btn-right and on click will change all of the options*/
     `Complete this line from A New Hope: “The ____________ Wastes are not to be traveled lightly."`,
     `Who preceded Senator Palpatine as Chancellor of the Galactic Senate?`,
     `How many engines are on an X-wing fighter?`,
-    `Bail Organa is Princess Leia’s adoptive father. What is her adoptive mother’s name?`
+    `Bail Organa is Princess Leia’s adoptive father. What is her adoptive mother’s name?`,
 ]
 
 var rightAnswers = [
@@ -193,16 +193,19 @@ let btn3 = [
     `Queen Breha Organa`
 ]
 
-// random index generator
-  
-const randomIndex = () =>{
-let rand = Math.floor(Math.random()*rightAnswers.length)
-  let usedIndex = []
-  usedIndex.push(rand)
-  return rand
-}
-random = randomIndex()
 
+
+// var questionIndex = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]
+
+
+
+// function shuffle(array) {
+//   array.sort(() => Math.random() - 0.5);
+//   console.log(array)
+//   return array
+// }
+
+// let random = shuffle(questionIndex)
 
 // Conditional statements establishing right question
 // rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong")
@@ -232,57 +235,81 @@ random = randomIndex()
 
 // random question generator
 
+var questionIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32]
+
+
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+  return array
+}
+
+
+
 const randomQuestion = () => {
+  let random = shuffle(questionIndex)
+for (let i = 0; i < questionIndex.length; i++) {
   //question
-    document.querySelector("#question").innerHTML = questionArr[random] // selects a new question
+    document.querySelector("#question").innerHTML = questionArr[random[i]] // selects a new question
     //btn 1
-    document.querySelector(".btn1").value = btn1[random] // sets the option for the button
-    document.querySelector(".btn1").classList.remove("btn-wrong") // removes the class
-    document.querySelector(".btn1").classList.remove("btn-wrong") // removes the class
+    document.querySelector(".btn1").value = btn1[random[i]] // sets the option for the button
+    document.querySelector(".btn1").classList.remove("btn-wrong","show") // removes the class
+    document.querySelector(".btn1").classList.remove("btn-right","show")
+    console.log(document.querySelector(".btn1").className)
     rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong") // sets the new class
    //btn 2
-    document.querySelector(".btn2").value = btn2[random]
-    document.querySelector(".btn2").classList.remove("btn-wrong")
-    document.querySelector(".btn2").classList.remove("btn-wrong")
-    rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong")
+    document.querySelector(".btn2").value = btn2[random[i]]
+    document.querySelector(".btn2").classList.remove("btn-wrong","show")
+    document.querySelector(".btn2").classList.remove("btn-right","show")
+    console.log(document.querySelector(".btn2").className)
+    rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong") // do after event listener, dont add classes ahead of time 
     // btn 3
-    document.querySelector(".btn3").value = btn3[random]
-    document.querySelector(".btn3").value = btn3[random]
-    document.querySelector(".btn3").classList.remove("btn-wrong")
-    document.querySelector(".btn3").classList.remove("btn-wrong")
+    document.querySelector(".btn3").value = btn3[random[i]]
+    document.querySelector(".btn3").classList.remove("btn-wrong","show")
+    document.querySelector(".btn3").classList.remove("btn-right","show")
+    console.log(document.querySelector(".btn3").className)
     rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
-
+  }
 }
 
 randomQuestion()
 
 const questionChange = () => {
   document.querySelector(".btn1").addEventListener("click", function(e) { 
-    document.querySelector(".btn1").classList.contains("btn-wrong") ? document.querySelector(".btn1").style.color='red' : null
+    // document.querySelector(".btn1").classList.contains("btn-wrong") ? document.querySelector(".btn1").style.color='red' : null
+    console.log(e.target)
+    document.querySelector(".btn1").classList.add("show")
   })
   document.querySelector(".btn2").addEventListener("click", function(e) { 
-    document.querySelector(".btn2").classList.contains("btn-wrong") ? document.querySelector(".btn2").style.color='red' : null
+    // document.querySelector(".btn2").classList.contains("btn-wrong") ? document.querySelector(".btn2").style.color='red' : null
+    document.querySelector(".btn2").classList.add("show")
   })
   
   document.querySelector(".btn3").addEventListener("click", function(e) { 
-    document.querySelector(".btn3").classList.contains("btn-wrong") ?  document.querySelector(".btn3").style.color='red' : null
+    // document.querySelector(".btn3").classList.contains("btn-wrong") ?  document.querySelector(".btn2").style.color='red' : null
+    document.querySelector(".btn3").classList.add("show")
   })
 
 document.querySelector(".btn-right").addEventListener("click", function(e){ // third button 
+  milleniumFalcon.y -= 55
   randomQuestion()
-  milleniumFalcon.y -= 100
 })
 }
 
 questionChange()
-canvas 
+
+document.querySelector("#instructions > input").addEventListener("click", function(e){
+  startGame()
+})
+
+// canvas 
  
     const ctx = canvas.getContext('2d');
     let animateId = null;
   
     
-    let i = 500
-    let j = 500
+    var i = 500
+    var j = 500
 
     let millFalconImg = new Image ()
     millFalconImg.src = './Images/Millennium-Falcon-Star-Wars-PNG-Image.png'
@@ -333,8 +360,9 @@ canvas
     }
 
     function detectCollisionMilleniumFalcon(){
-      var rect1 = {x: milleniumFalcon.x, y: milleniumFalcon.y, width: 150, height: 100}
-      var rect2 = {x: 0, y: 10, width: 450, height: 100}
+      var rect1 = {x: milleniumFalcon.x, y: milleniumFalcon.y, width: 150, height: 75}
+      var rect2 = {x: 0, y: 10, width: 450, height: 100} 
+      
 
 if (rect1.x < rect2.x + rect2.width &&
    rect1.x + rect1.width > rect2.x &&
@@ -356,17 +384,29 @@ rect1.y + rect1.height > rect2.y) {
 }
 }
 
-      function animate(){ //Where the magic happens
-        ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
-        
-        drawMillFalcon()
-        drawStarDestroyer()
-        drawFinishLine()
-        if(detectCollisionMilleniumFalcon())return
-        if(detectCollisionStarDestroyer())return
 
-        animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
-    }
-    animate()
+ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
+        
+
+function animate(){ //Where the magic happens
+  ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
   
-    function startGame() {};
+  drawMillFalcon()
+  drawStarDestroyer()
+  drawFinishLine()
+  if(detectCollisionMilleniumFalcon()){
+    alert('Star Wars')
+    milleniumFalcon.y = 500 // create round function to reflect current round and do scoring based on the round
+  }
+  if(detectCollisionStarDestroyer()){
+    // alert `Computer takes this round`     
+    j = 500  
+  }
+
+  animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
+}
+
+    function startGame() {
+  
+    animate()
+    };

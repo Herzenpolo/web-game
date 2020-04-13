@@ -66,6 +66,7 @@ canvas {
     border: black 1px solid;
 } */
 
+
 #instructions {
     text-align: center;
     display: flex;
@@ -120,6 +121,14 @@ hr {
     text-align: center;
     margin: 1em 0 1em 0;
     background-color: transparent;
+}
+
+.btn-right.show{
+    color: green
+}
+
+.btn-wrong.show{
+    color: red
 }
 
 .start-btn {
