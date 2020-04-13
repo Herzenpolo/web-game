@@ -419,8 +419,9 @@ if(detectCollisionStarDestroyer()){
 
 }
 
-computerScore === 2 ? (alert ("You have been captured by the star detroyer, your mission has failed"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate)
-playerScore === 2 ? alert("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME") : animateId = window.requestAnimationFrame(animate)
+// computerScore === 2 ? (alert ("You have been captured by the star detroyer, your mission has failed"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate) CHECK WITH NIKO TOMORROW
+// playerScore === 2 ? alert("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME") : null
+animateId = window.requestAnimationFrame(animate)
 
 
 // animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
