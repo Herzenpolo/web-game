@@ -339,7 +339,7 @@ const drawMillFalcon = () => {
   }
 
 const drawStarDestroyer = () => {
-    ctx.drawImage(starDestroyer.image, starDestroyer.x, starDestroyer.y -= 0.2, 100, 75) //sets properties and size of the road immage
+    ctx.drawImage(starDestroyer.image, starDestroyer.x, starDestroyer.y -= 10, 100, 75) //sets properties and size of the road immage
   }
 
   starDestroyer ={
@@ -407,7 +407,7 @@ if(detectCollisionMilleniumFalcon()){
   starDestroyer.y = 500
   playerScore++
   document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
-  playerScore === 2 ? console.log("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME") : ctx.clearRect(0, 0, canvas.width, canvas.height)
+  
 }
 if(detectCollisionStarDestroyer()){
   // alert `Computer takes this round`     
@@ -416,11 +416,14 @@ if(detectCollisionStarDestroyer()){
   milleniumFalcon.y = 500
   computerScore++
   document.querySelector(".computer-score").innerHTML = `Computer: ${computerScore}`
-  computerScore === 2 ? alert ("You have been captured by the star detroyer, your mission has failed"): null
 
 }
 
-animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
+computerScore === 2 ? (alert ("You have been captured by the star detroyer, your mission has failed"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate)
+playerScore === 2 ? alert("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME") : animateId = window.requestAnimationFrame(animate)
+
+
+// animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
 }
 
   function startGame() {
