@@ -253,17 +253,17 @@ for (let i = 0; i < questionIndex.length; i++) {
   //btn 1
   document.querySelector(".btn1").value = btn1[random[i]] // sets the option for the button
   document.querySelector(".btn1").classList.remove("btn-wrong","show","btn-right") // removes the class
-  console.log(document.querySelector(".btn1").className)
+  // console.log(document.querySelector(".btn1").className)
   // rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong") // sets the new class
  //btn 2
   document.querySelector(".btn2").value = btn2[random[i]]
   document.querySelector(".btn2").classList.remove("btn-wrong","show","btn-right")
-  console.log(document.querySelector(".btn2").className)
+  // console.log(document.querySelector(".btn2").className)
   // rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong") // do after event listener, dont add classes ahead of time 
   // btn 3
   document.querySelector(".btn3").value = btn3[random[i]]
   document.querySelector(".btn3").classList.remove("btn-wrong","show","btn-right")
-  console.log(document.querySelector(".btn3").className)
+  // console.log(document.querySelector(".btn3").className)
   // rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
 }
 }
@@ -305,6 +305,7 @@ questionChange()
 document.querySelector("#instructions > input").addEventListener("click", function(e){
 startGame()
 })
+
 
 // canvas 
 
@@ -391,6 +392,8 @@ return true
 
 ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
       
+let playerScore = 0
+let computerScore = 0
 
 function animate(){ //Where the magic happens
 ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
@@ -402,12 +405,19 @@ if(detectCollisionMilleniumFalcon()){
   alert('You win this round')
   milleniumFalcon.y = 500 // create round function to reflect current round and do scoring based on the round
   starDestroyer.y = 500
+  playerScore++
+  document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
+  playerScore === 2 ? console.log("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME") : ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 if(detectCollisionStarDestroyer()){
   // alert `Computer takes this round`     
   alert('Computer wins this round')
   starDestroyer.y = 500
   milleniumFalcon.y = 500
+  computerScore++
+  document.querySelector(".computer-score").innerHTML = `Computer: ${computerScore}`
+  computerScore === 2 ? alert ("You have been captured by the star detroyer, your mission has failed"): null
+
 }
 
 animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
@@ -417,3 +427,4 @@ animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loo
 
   animate()
   };
+

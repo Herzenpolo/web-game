@@ -141,3 +141,8 @@ hr {
     border: none;
 
 }
+
+#scores {
+    width: 100%;
+    text-align: center;
+}
