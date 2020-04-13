@@ -82,42 +82,54 @@ var rightAnswers = [
 ]
 
 let btn1 = [
-    `Millennium Falcon`,
-    `Lightsaber`,
-    `Anakin Skywalker`,
-    `Yoda`,
-    `Chewie`,
-    `Padmé Amidala`,
-    `12`,
-    `because he lacked patience`,
-    `The Force`,
-    `The Sith`,
-    `Luke I am your Father`,
-    `Hippos`,
-    `Ethiopia`,
-    `Return of the Jedi`,
-    `Forbes`,
-    `Harrison Ford`,
-    `Ice Crystals`,
-    `6 pounds`,
-    `Star Wars: Episode V The Empire Strikes Back`,
-    `Isaac Newton`,
-    `Tatooine`,
-    `Jabush`,
-    `tintin gas`,
-    `Sand People`,
-    `Jedi`,
-    `L3's memory drive`,
-    `Purple`,
-    `Naboo`,
-    `Chancellor Organa`,
-    `2`,
-    `Padme`,
-    // enter the wong answers for indexes 10-
+  `Millennium Falcon`,
+  `Lightsaber`,
+  `Anakin Skywalker`,
+  `Yoda`,
+  `Chewie`,
+  `Padmé Amidala`,
+  `12`,
+  `because he lacked patience`,
+  `The Force`,
+  `The Sith`,
+  `"Luke I am your Father"`,
+  `Hippos`,
+  `Ethiopia`,
+  `Return of the Jedi`,
+  `Forbes`,
+  `Harrison Ford`,
+  `Ice Crystals`,
+  `6 pounds`,
+  `Star Wars: Episode V The Empire Strikes Back`,
+  `Isaac Newton`,
+  `Tatooine`,
+  `Jabush`,
+  `tintin gas`,
+  `All Terrain All Attack`,
+  `Kashan`,
+  `Sand People`,
+  `Jedi`,
+  `L3's memory drive`,
+  `Purple`,
+  `Naboo`,
+  `Chancellor Organa`,
+  `2`,
+  `Padme`,
+  // answer options for button `
 ]
 
 let btn2 = [
     // enter wrong answers for indexes 1-9
+    `Silver Bullet`,
+    `Shooters`,
+    `Luke Skywalker`,
+    `Qui Gon Jinn`,
+    `Padme Amidala`,
+    `Princess Leia`,
+    `13`,
+    `Because he had no talent`,
+    `The Strength`,
+    `The Senate`,
     `“May the Force be with you.”`,
     `Elephants`,
     `Australia`,
@@ -127,11 +139,44 @@ let btn2 = [
     `Ilum crystals`,
     `8 pounds`,
     `Star Wars: Episode IV A New Hope`,
-    // enter wrong answers for indexes 19 or more 
+    `Stephen Hawking`,
+    'Organa',
+    'Largaa',
+    `Muhana Gas`,
+    `All Attack Acessible Transport`,
+    `Mandalore`,
+    `Garnaughts`,
+    `Gungan`,
+    `The Death Star`,
+    `yellow`,
+    `Tatooine`,
+    `Chancellor Obi Wan Kenobi`,
+    `5`,
+    `Queen Jamilia`,
+    // Answer options for second button 
 ]
 
 let btn3 = [
    // write in answers for all indexes before 18 and before 
+   `J Type 327 Nubian`,
+   `Blasters`,
+   `Ben Solo`,
+   `Yada`,
+   `Jamilia Amidala`,
+   `Ahsoka Tano`,
+   `14`,
+   `Because he had no dedication`,
+   `The magic`,
+   `The Council`,
+   `“Do or do not, there is no try”`,
+   `Giraffe`,
+   `Tunisia`,
+   `Attack of the Droids`,
+   `Rolling Stone`,
+   `Liam Neeson `,
+   `Karma crystals`,
+   `9 pounds`,
+   `Star Wars: Episode III Revenge of the Sith`,
     `Albert Einstein`,
     `Naboo`,
     `Logray`,
@@ -149,12 +194,20 @@ let btn3 = [
 ]
 
 // random index generator
-let rand = Math.floor(Math.random() * questionArr.length) 
+  
+const randomIndex = () =>{
+let rand = Math.floor(Math.random()*rightAnswers.length)
+  let usedIndex = []
+  usedIndex.push(rand)
+  return rand
+}
+random = randomIndex()
+
 
 // Conditional statements establishing right question
-rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong")
-rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong")
-rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
+// rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong")
+// rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong")
+// rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
 
 // event listeners for buttons 
  document.querySelector(".btn1").addEventListener("click", function(e){ // first button
@@ -175,13 +228,29 @@ document.querySelector(".start-btn").addEventListener("click", function(e){ // s
 
 
 
+
+
 // random question generator
 
 const randomQuestion = () => {
-    document.querySelector("#question").innerHTML = questionArr[rand]
-    document.querySelector(".btn1").value = btn1[rand]
-    document.querySelector(".btn2").value = btn2[rand]
-    document.querySelector(".btn3").value = btn3[rand]
+  //question
+    document.querySelector("#question").innerHTML = questionArr[random] // selects a new question
+    //btn 1
+    document.querySelector(".btn1").value = btn1[random] // sets the option for the button
+    document.querySelector(".btn1").classList.remove("btn-wrong") // removes the class
+    document.querySelector(".btn1").classList.remove("btn-wrong") // removes the class
+    rightAnswers.includes(document.querySelector(`.btn1`).value) ? document.querySelector(`.btn1`).classList.add("btn-right") : document.querySelector(`.btn1`).classList.add("btn-wrong") // sets the new class
+   //btn 2
+    document.querySelector(".btn2").value = btn2[random]
+    document.querySelector(".btn2").classList.remove("btn-wrong")
+    document.querySelector(".btn2").classList.remove("btn-wrong")
+    rightAnswers.includes(document.querySelector(`.btn2`).value) ? document.querySelector(`.btn2`).classList.add("btn-right") : document.querySelector(`.btn2`).classList.add("btn-wrong")
+    // btn 3
+    document.querySelector(".btn3").value = btn3[random]
+    document.querySelector(".btn3").value = btn3[random]
+    document.querySelector(".btn3").classList.remove("btn-wrong")
+    document.querySelector(".btn3").classList.remove("btn-wrong")
+    rightAnswers.includes(document.querySelector(`.btn3`).value) ? document.querySelector(`.btn3`).classList.add("btn-right") : document.querySelector(`.btn3`).classList.add("btn-wrong")
 
 }
 
