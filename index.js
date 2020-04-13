@@ -339,7 +339,7 @@ const drawMillFalcon = () => {
   }
 
 const drawStarDestroyer = () => {
-    ctx.drawImage(starDestroyer.image, starDestroyer.x, starDestroyer.y -= 10, 100, 75) //sets properties and size of the road immage
+    ctx.drawImage(starDestroyer.image, starDestroyer.x, starDestroyer.y -= 0.2, 100, 75) //sets properties and size of the road immage
   }
 
   starDestroyer ={
