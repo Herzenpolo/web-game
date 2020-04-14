@@ -242,11 +242,11 @@ function shuffle(array) {
 array.sort(() => Math.random() - 0.5);
 return array
 }
-
+let random = shuffle(questionIndex)
 
 
 const randomQuestion = () => {
-let random = shuffle(questionIndex)
+console.log(random)
 for (let i = 0; i < questionIndex.length; i++) {
 //question
   document.querySelector("#question").innerHTML = questionArr[random[i]] // selects a new question
@@ -396,7 +396,8 @@ let playerScore = 0
 let computerScore = 0
 
 function animate(){ //Where the magic happens
-ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
+  animateId = window.requestAnimationFrame(animate)
+  ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
 
 drawMillFalcon()
 drawStarDestroyer()
@@ -418,13 +419,25 @@ if(detectCollisionStarDestroyer()){
   document.querySelector(".computer-score").innerHTML = `Computer: ${computerScore}`
 
 }
+// console.log(playerScore, computerScore, animateId)
 
-// computerScore === 2 ? (alert ("You have been captured by the star detroyer, your mission has failed"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate) CHECK WITH NIKO TOMORROW
-// playerScore === 2 ? alert("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME") : null
-animateId = window.requestAnimationFrame(animate)
+// computerScore === 1 ? (alert ("You have been captured by the star detroyer, your mission has failed"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate) 
+
+if(computerScore === 1) {
+  alert("You have been captured by the star detroyer, your mission has failed")
+  cancelAnimationFrame(animateId)
+}
+
+if(playerScore === 1) {
+  alert("You have CONGRATS! You completed the Kessler Run")
+  cancelAnimationFrame(animateId)
+}
+
+// playerScore === 1 ? (alert("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate)
+//   animateId = window.requestAnimationFrame(animate)
 
 
-// animateId = window.requestAnimationFrame(animate) //Game rendering -infinite loop that goes super fast
+//Game rendering -infinite loop that goes super fast
 }
 
   function startGame() {
