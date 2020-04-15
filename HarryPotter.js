@@ -125,7 +125,7 @@ var harryPotterArr = [
         q:"What is the name of the book Hermione supposes Voldemort used to learn about Horcruxes?",
         a:"Secrets of the Darkest Arts",
         btn1: "Powers of the Darkest Arts",
-        btn2: "Secrets of the Darkest arts",
+        btn2: "Secrets of the Darkest Arts",
         btn3: "Potions of the Darkest Arts"
     },
     {

@@ -19,6 +19,7 @@ game = window[urlParams.get('game')] // window changes the string to the variabl
 
 const starWarsGame = () => {
   document.querySelector("#header-logo").src = './Images/Star_Wars_logo-1.png'
+  document.querySelector("#header-logo").style.width = "40%"
   docBackground.style.backgroundImage = "url('./Images/784428-death-star-wallpaper-2560x1600-for-ipad-pro.jpg')"
   document.querySelector("#p1").innerHTML = "Welcome to Star Wars Trivia, "
   document.querySelector("#p2").innerHTML = "today you have been tasked with completing "

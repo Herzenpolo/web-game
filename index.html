@@ -5,11 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body id="home">
-    <a href="./game.html?game=harryPotterArr"><img src="./Images/harry-potter-text-logo--13.png" alt="Harry Potter"></a>
-    <a href="./game.html?game=starWarsArr"><img src="./Images/Star_Wars_logo-1.png" alt="Star Wars"></a>
+<body>
+    <section>
+        <h1 class="gameTitle"> Trivia Race </h1>
+    </section>
+    <section class="logo">
+    <a href="./game.html?game=harryPotterArr"><img class="harry-potter"  src="./Images/harry-potter-text-logo--13.png" alt="Harry Potter"></a>
+    <a href="./game.html?game=starWarsArr"><img class="starWars" src="./Images/Star_Wars_logo-1.png" alt="Star Wars"></a>
+</section>
 </body>
 
-<!-- <script type="text/javascript" src="./index.js"></script> -->
+<script>
+    
+    document.querySelector(".gameTitle").style.color = '#FFE81F'
+    document.querySelector(".harry-potter").style.width = '40%'
+    document.querySelector(".starWars").style.width = '50%'
+    // document.querySelector(".logo").style.textAlign = 'center'
+    document.querySelector(".logo").style.flexDirection = 'row'
+    document.querySelector(".logo").style.alignItems = 'center'
+    document.querySelector(".logo").style.justifyContent = 'center'
+    let docBackground = document.querySelector("body")
+    docBackground.style.backgroundImage = "url('./Images/5c03da8971db5da45a4d7be7a1db2c59.jpg')"
+
+</script>
 
 </html>
