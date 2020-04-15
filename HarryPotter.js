@@ -54,16 +54,16 @@ var harryPotterArr = [
     {
         q: "Where does Hagrid tale Harry to buy School Supplies?",
         a: "Diagon Alley",
-        btn1: "",
-        btn2: "",
-        btn3: ""
+        btn1: "Diagonally",
+        btn2: "Diagon Alley",
+        btn3: "The Leaky Cauldron"
     },
     {
         q: "Where do wizards go to deposit money?",
         a: "Gringots",
-        btn1: "Diagon Alley",
+        btn1: "Gringots",
         btn2: "Diagonally",
-        btn3: "The Leaky Cauldron"
+        btn3: "The Central Bank"
     },
     {
         q: "What is the number of the vault where Hagrid picks up the Sorcerer's Stone?",
@@ -91,7 +91,7 @@ var harryPotterArr = [
         a:"The room of requirement",
         btn1: "The room in need",
         btn2: "The Chamber of Secrets",
-        btn3: "The rom of requirement"
+        btn3: "The room of requirement"
     },
     {
         q: "Who is the Hufflepuff house ghost",

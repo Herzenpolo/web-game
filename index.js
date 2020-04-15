@@ -1,5 +1,3 @@
-// random question generator
-
 var game = starWarsArr
 var index = 0
 
@@ -14,8 +12,11 @@ let random = shuffle(game)
 const question = () => {
 document.querySelector("#question").innerHTML = random[index].q
 document.querySelector(".btn1").value = random[index].btn1
+document.querySelector(".btn1").style.color = '#FFE81F'
 document.querySelector(".btn2").value = random[index].btn2
+document.querySelector(".btn2").style.color = '#FFE81F'
 document.querySelector(".btn3").value = random[index].btn3
+document.querySelector(".btn3").style.color = '#FFE81F'
 
 }
 
@@ -28,15 +29,15 @@ let answer = question()
 rightAnswer()
 
 document.querySelector(".btn1").onclick = function(e) {
-  document.querySelector(".btn1").value === answer ? (index++, question(), rightAnswer()) : console.log('wrong')
+  document.querySelector(".btn1").value === answer ? (index++, question(), rightAnswer(), milleniumFalcon.y -= 55) : document.querySelector(".btn1").style.color = 'red'
 }
 
 document.querySelector(".btn2").onclick = function(e) {
-  document.querySelector(".btn2").value === answer ? (index++, question(), rightAnswer()) : console.log('wrong')
+  document.querySelector(".btn2").value === answer ? (index++, question(), rightAnswer(), milleniumFalcon.y -= 55) : document.querySelector(".btn2").style.color = 'red'
 }
 
 document.querySelector(".btn3").onclick = function(e) {
-  document.querySelector(".btn3").value === answer ? (index++, question(), rightAnswer()) : console.log('wrong')
+  document.querySelector(".btn3").value === answer ? (index++, question(), rightAnswer(), milleniumFalcon.y -= 55) : document.querySelector(".btn3").style.color = 'red'
 }
 
 document.querySelector("#instructions > input").addEventListener("click", function(e){
@@ -135,23 +136,22 @@ ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping 
 let playerScore = 0
 let computerScore = 0
 
-function animate(){ //Where the magic happens
+function animate(){ 
+  
   animateId = window.requestAnimationFrame(animate)
-  ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping to a blank page
-
+  ctx.clearRect(0, 0, canvas.width, canvas.height) 
 drawMillFalcon()
 drawStarDestroyer()
 drawFinishLine()
 if(detectCollisionMilleniumFalcon()){
   alert('You win this round')
-  milleniumFalcon.y = 500 // create round function to reflect current round and do scoring based on the round
+  milleniumFalcon.y = 500 
   starDestroyer.y = 500
   playerScore++
   document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
   
 }
 if(detectCollisionStarDestroyer()){
-  // alert `Computer takes this round`     
   alert('Computer wins this round')
   starDestroyer.y = 500
   milleniumFalcon.y = 500
@@ -159,25 +159,18 @@ if(detectCollisionStarDestroyer()){
   document.querySelector(".computer-score").innerHTML = `Computer: ${computerScore}`
 
 }
-// console.log(playerScore, computerScore, animateId)
 
-// computerScore === 1 ? (alert ("You have been captured by the star detroyer, your mission has failed"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate) 
-
-if(computerScore === 1) {
+if(computerScore === 2) {
   alert("You have been captured by the star detroyer, your mission has failed")
   cancelAnimationFrame(animateId)
 }
 
-if(playerScore === 1) {
+if(playerScore === 2) {
   alert("You have CONGRATS! You completed the Kessler Run")
   cancelAnimationFrame(animateId)
 }
 
-// playerScore === 1 ? (alert("CONGRATS YOU HAVE COMPLETED THE KESSLER RUN IN RECORD TIME"), cancelAnimationFrame(animateId)) : animateId = window.requestAnimationFrame(animate)
-//   animateId = window.requestAnimationFrame(animate)
 
-
-//Game rendering -infinite loop that goes super fast
 }
 
   function startGame() {

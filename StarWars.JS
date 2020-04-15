@@ -94,7 +94,7 @@ var starWarsArr = [
         q:"Which Star Wars movie was the first to be shot entirely with high-definition cameras, without using traditional 35-millimeter film?",
         a:"Attack of the Clones",
         btn1:"Revenge of the Sith",
-        btn2:"Attack of the clones",
+        btn2:"Attack of the Clones",
         btn3:"Return of the Jedi"
     },
     {
@@ -225,5 +225,4 @@ var starWarsArr = [
     },
 
 ]
-
 
