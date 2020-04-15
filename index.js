@@ -1,20 +1,28 @@
 
 
-var game = starWarsArr // this variable will be used in the home page to assign the game that we are playing (ie Harry Potter or )
-var index = 0 // This index will serve as the index for the suffled array, when a button is clicked this index gets addad ++
+var game = harryPotterArr
+var index = 0
+
+let docBackground = document.querySelector("body")
+
+if (game === starWarsArr) {
+  docBackground.style.backgroundImage = "url(./../Images/784428-death-star-wallpaper-2560x1600-for-ipad-pro.jpg')"
+} else if (game === harryPotterArr) {
+  docBackground.style.backgroundImage = "url('./Images/harry-potter-30.jpg')"
+}
 
 
 const shuffle = (arr) => {
 arr.sort(() => Math.random() - 0.5);
 return arr
 }
-// Shuffle array (game)
+
 let random = shuffle(game)
 
-const question = () => { //This function call on the "random" array 
-document.querySelector("#question").innerHTML = random[index].q //calls for the new question 
-document.querySelector(".btn1").value = random[index].btn1 // sets the value for the button
-document.querySelector(".btn1").style.color = '#FFE81F' // resets the color if the answer was wrong
+const question = () => {
+document.querySelector("#question").innerHTML = random[index].q
+document.querySelector(".btn1").value = random[index].btn1
+document.querySelector(".btn1").style.color = '#FFE81F'
 document.querySelector(".btn2").value = random[index].btn2
 document.querySelector(".btn2").style.color = '#FFE81F'
 document.querySelector(".btn3").value = random[index].btn3
@@ -22,18 +30,18 @@ document.querySelector(".btn3").style.color = '#FFE81F'
 
 }
 
-const rightAnswer = () => { // calls on the arraw object to get the right answer and be able to compare to the button value
+const rightAnswer = () => {
   answer=random[index].a
   return answer
-} 
+}
 
 let answer = question()
 rightAnswer()
 
-document.querySelector(".btn1").onclick = function(e) { // assigns an event listener to the buttons
+document.querySelector(".btn1").onclick = function(e) {
   document.querySelector(".btn1").value === answer ? (index++, question(), rightAnswer(), player.y -= 55) : document.querySelector(".btn1").style.color = 'red'
 }
-// if the button has the same value as an answer then the index +=1 we run the question() function, the right answer formula, and moves the player function
+
 document.querySelector(".btn2").onclick = function(e) {
   document.querySelector(".btn2").value === answer ? (index++, question(), rightAnswer(), player.y -= 55) : document.querySelector(".btn2").style.color = 'red'
 }
@@ -46,7 +54,7 @@ document.querySelector("#instructions > input").addEventListener("click", functi
   
   startGame()
 })
-// adds the functionality to the "go" button
+
 
 // canvas 
 
@@ -66,8 +74,7 @@ document.querySelector("#instructions > input").addEventListener("click", functi
   } else if (game === harryPotterArr) {
   playerImg.src = harryPotterPlayerSrc
   }
-   // decides on the image source depending on the "game" class 
-  
+    
   playerImg.onload = function(e) {
     drawPlayer()
   }
@@ -79,14 +86,14 @@ const drawPlayer = () => {
     ctx.drawImage(player.image, player.x, player.y, 100, 100)
   }
 }
-// sets the dimmensions of an image based on the value of "game"
-  
-player ={
+
+  player ={
     x: 60,
     y: i,
-    image: playerImg  
+    image: playerImg  // makes an object of the road image, we can refer to this later 
   }
-// makes an object of the road image, we can refer to this later 
+
+
 
   let computerImg = new Image ()
   
@@ -172,13 +179,13 @@ function animate(){
 
   drawFinishLine()
 
-if(detectCollisionplayer()){
+  if(detectCollisionplayer()){
     alert('You win this round')
     player.y = 500 
     computer.y = 500
     playerScore++
     document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
-  // makes the collision formula useful to the, creates an alert, changes score, ends game 
+  
 }
 if(detectCollisioncomputer()){
   alert('Computer wins this round')
