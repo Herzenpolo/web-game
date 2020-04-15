@@ -14,7 +14,7 @@ let docBackground = document.querySelector("body")
 
 var urlParams = new URLSearchParams(window.location.search);
 console.log(urlParams.get('game')); // "edit"
-game = window[urlParams.get('game')] // window changes the string to the variable in this scenario
+game = window[urlParams.get('game')] // window changes the string to the variable in this
 
 
 const starWarsGame = () => {

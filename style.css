@@ -17,9 +17,8 @@ header {
     align-items: center;
     justify-content: center;
 }
-#header-logo {
-    width: 25%;
-}
+
+
 
 #game-board {
     float: right;
