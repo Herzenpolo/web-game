@@ -2,7 +2,7 @@ var harryPotterArr = [
     {
         q: "What happens when Hagrid casts a spell on Dudley?",
         a: "He grows a tail",
-        btn1: "He grows pig ears",
+        btn1: "He grows a pig tail",
         btn2: "He grows a pig snout",
         btn3: "He grows pig ears"
   
@@ -180,7 +180,7 @@ var harryPotterArr = [
     {
         q:"Dumbledore has a scar above his left knee that is a perfect map of what?",
         a:"The London Under Ground",
-        btn1: "The Longon Under Ground",
+        btn1: "The London Under Ground",
         btn2: "London",
         btn3: "The Dark Forest"
     },
@@ -220,3 +220,6 @@ var harryPotterArr = [
         btn3: "Wilfred the Wise"
     }
   ]
+
+  let harryPotterPlayerSrc = './Images/23974-1-harry-potter-broom-transparent-thumb.png'
+  let harryPotterComputerSrc = './Images/d8wfx4u-c855013f-623a-452d-9967-b831ac5d216a.png'

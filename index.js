@@ -1,3 +1,5 @@
+
+
 var game = starWarsArr
 var index = 0
 
@@ -29,19 +31,20 @@ let answer = question()
 rightAnswer()
 
 document.querySelector(".btn1").onclick = function(e) {
-  document.querySelector(".btn1").value === answer ? (index++, question(), rightAnswer(), milleniumFalcon.y -= 55) : document.querySelector(".btn1").style.color = 'red'
+  document.querySelector(".btn1").value === answer ? (index++, question(), rightAnswer(), player.y -= 55) : document.querySelector(".btn1").style.color = 'red'
 }
 
 document.querySelector(".btn2").onclick = function(e) {
-  document.querySelector(".btn2").value === answer ? (index++, question(), rightAnswer(), milleniumFalcon.y -= 55) : document.querySelector(".btn2").style.color = 'red'
+  document.querySelector(".btn2").value === answer ? (index++, question(), rightAnswer(), player.y -= 55) : document.querySelector(".btn2").style.color = 'red'
 }
 
 document.querySelector(".btn3").onclick = function(e) {
-  document.querySelector(".btn3").value === answer ? (index++, question(), rightAnswer(), milleniumFalcon.y -= 55) : document.querySelector(".btn3").style.color = 'red'
+  document.querySelector(".btn3").value === answer ? (index++, question(), rightAnswer(), player.y -= 55) : document.querySelector(".btn3").style.color = 'red'
 }
 
 document.querySelector("#instructions > input").addEventListener("click", function(e){
-startGame()
+  
+  startGame()
 })
 
 
@@ -50,43 +53,64 @@ startGame()
   const ctx = canvas.getContext('2d');
   let animateId = null;
 
+   
   
   var i = 500
   var j = 500
 
 
-  let millFalconImg = new Image ()
-  millFalconImg.src = './Images/Millennium-Falcon-Star-Wars-PNG-Image.png'
-  millFalconImg.onload = function(e) {
-    drawMillFalcon()
+  let playerImg = new Image ()
+  
+  if(game === starWarsArr){
+  playerImg.src = starWarsPlayerSrc
+  } else if (game === harryPotterArr) {
+  playerImg.src = harryPotterPlayerSrc
+  }
+    
+  playerImg.onload = function(e) {
+    drawPlayer()
   }
 
-const drawMillFalcon = () => {
-    ctx.drawImage(milleniumFalcon.image, milleniumFalcon.x, milleniumFalcon.y, 150, 100) //sets properties and size of the road immage
+const drawPlayer = () => {
+    if(game === starWarsArr) {
+    ctx.drawImage(player.image, player.x, player.y, 150, 100) //sets properties and size of the road immage
+  } else if (game === harryPotterArr) {
+    ctx.drawImage(player.image, player.x, player.y, 100, 100)
   }
+}
 
-  milleniumFalcon ={
+  player ={
     x: 60,
     y: i,
-    image: millFalconImg  // makes an object of the road image, we can refer to this later 
+    image: playerImg  // makes an object of the road image, we can refer to this later 
   }
 
 
 
-  let starDestroyerImg = new Image ()
-  starDestroyerImg.src = './Images/Star-Destroyer-PNG-Photo-Image.png'
-  starDestroyerImg.onload = function(e) {
-    drawStarDestroyer()
+  let computerImg = new Image ()
+  
+  if(game === starWarsArr) {
+    computerImg.src = starWarsComputerSrc
+  } else if (game === harryPotterArr) {
+    computerImg.src = harryPotterComputerSrc
+  }
+  
+computerImg.onload = function(e) {
+    drawComputer()
   }
 
-const drawStarDestroyer = () => {
-    ctx.drawImage(starDestroyer.image, starDestroyer.x, starDestroyer.y -= 0.2, 100, 75) //sets properties and size of the road immage
+const drawComputer = () => {
+  if(game === starWarsArr) {
+  ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 100, 75) //sets properties and size of the road immage
+  } else if (game === harryPotterArr) {
+  ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 75, 75)
   }
+}
 
-  starDestroyer ={
+  computer ={
     x: 250,
     y: j,
-    image: starDestroyerImg  // makes an object of the road image, we can refer to this later 
+    image: computerImg  // makes an object of the road image, we can refer to this later 
   }
 
   let finishLineImg = new Image ()
@@ -105,8 +129,8 @@ const drawStarDestroyer = () => {
       image: finishLineImg
   }
 
-  function detectCollisionMilleniumFalcon(){
-    var rect1 = {x: milleniumFalcon.x, y: milleniumFalcon.y, width: 150, height: 75}
+  function detectCollisionplayer(){
+    var rect1 = {x: player.x, y: player.y, width: 150, height: 75}
     var rect2 = {x: 0, y: 10, width: 450, height: 100} 
     
 
@@ -118,8 +142,8 @@ if (rect1.x < rect2.x + rect2.width &&
  }
 }
 
-function detectCollisionStarDestroyer(){
-var rect1 = {x: starDestroyer.x, y: starDestroyer.y, width: 100, height: 75}
+function detectCollisioncomputer(){
+var rect1 = {x: computer.x, y: computer.y, width: 100, height: 75}
 var rect2 = {x: 0, y: 10, width: 450, height: 100}
 
 if (rect1.x < rect2.x + rect2.width &&
@@ -137,36 +161,40 @@ let playerScore = 0
 let computerScore = 0
 
 function animate(){ 
-  
+
   animateId = window.requestAnimationFrame(animate)
   ctx.clearRect(0, 0, canvas.width, canvas.height) 
-drawMillFalcon()
-drawStarDestroyer()
-drawFinishLine()
-if(detectCollisionMilleniumFalcon()){
-  alert('You win this round')
-  milleniumFalcon.y = 500 
-  starDestroyer.y = 500
-  playerScore++
-  document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
+
+  drawPlayer()
+
+  drawComputer()
+
+  drawFinishLine()
+
+  if(detectCollisionplayer()){
+    alert('You win this round')
+    player.y = 500 
+    computer.y = 500
+    playerScore++
+    document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
   
 }
-if(detectCollisionStarDestroyer()){
+if(detectCollisioncomputer()){
   alert('Computer wins this round')
-  starDestroyer.y = 500
-  milleniumFalcon.y = 500
+  computer.y = 500
+  player.y = 500
   computerScore++
   document.querySelector(".computer-score").innerHTML = `Computer: ${computerScore}`
 
 }
 
 if(computerScore === 2) {
-  alert("You have been captured by the star detroyer, your mission has failed")
+  alert("Youu've lost this round, ty again soon")
   cancelAnimationFrame(animateId)
 }
 
 if(playerScore === 2) {
-  alert("You have CONGRATS! You completed the Kessler Run")
+  alert("You did it!")
   cancelAnimationFrame(animateId)
 }
 
@@ -177,3 +205,4 @@ if(playerScore === 2) {
 
   animate()
   };
+

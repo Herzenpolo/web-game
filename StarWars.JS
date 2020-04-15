@@ -226,3 +226,5 @@ var starWarsArr = [
 
 ]
 
+let starWarsPlayerSrc = "./Images/Millennium-Falcon-Star-Wars-PNG-Image.png"
+let starWarsComputerSrc = './Images/Star-Destroyer-PNG-Photo-Image.png'
