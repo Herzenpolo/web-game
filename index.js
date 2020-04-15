@@ -1,8 +1,53 @@
 
 
-var game = starWarsArr
+// var game = harryPotterArr
 var index = 0
 
+let docBackground = document.querySelector("body")
+
+// document.querySelector("#home > a:nth-child(1)").addEventListener("click", function (e) {
+//   game = harryPotterArr
+// })
+// document.querySelector("#home > a:nth-child(2)").addEventListener("click", function (e) {
+//    game = starWarsArr
+// })
+
+var urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams.get('game')); // "edit"
+game = window[urlParams.get('game')] // window changes the string to the variable in this scenario
+
+
+const starWarsGame = () => {
+  document.querySelector("#header-logo").src = './Images/Star_Wars_logo-1.png'
+  docBackground.style.backgroundImage = "url('./Images/784428-death-star-wallpaper-2560x1600-for-ipad-pro.jpg')"
+  document.querySelector("#p1").innerHTML = "Welcome to Star Wars Trivia, "
+  document.querySelector("#p2").innerHTML = "today you have been tasked with completing "
+  document.querySelector("#p3").innerHTML = "the kessler run in 11 seconds or less and beat Han Solo's"
+  document.querySelector("#p4").innerHTML = "12 seconds. Han Solo was able to make this run by downloading L3's"
+  document.querySelector("#p5").innerHTML = "memory on to the Millennium Falcon.  Download your memory into your ship by"
+  document.querySelector("#p6").innerHTML = "answering the question's below, you have to beat your opponent 2 out of "
+  document.querySelector("#p7").innerHTML = "3 times to complete the Kessler run! So start your engines, press GO and start moving!"
+}
+
+const harryPotterGame = () => {
+  document.querySelector("#header-logo").src = './Images/harry-potter-text-logo--13.png'
+  document.querySelector("#header-logo").style.width = "10%"
+  docBackground.style.backgroundImage = "url('./Images/harry-potter-30.jpg')"
+  document.querySelector("#p1").innerHTML = "Traditionally the house cup"
+  document.querySelector("#p2").innerHTML = "goes to the House that accumulated the"
+  document.querySelector("#p3").innerHTML = "most amount of points in the course of the school year."
+  document.querySelector("#p4").innerHTML = "Some claim that Dumbledore and Professor Mcgonagall have rigged the "
+  document.querySelector("#p5").innerHTML = "competitions so Gryffindor can win the cup every year. This year, however,"
+  document.querySelector("#p6").innerHTML = "decided that the winner of the cup will be determined by the winner of a race"
+  document.querySelector("#p7").innerHTML = "between Gryffindor and Slytherin. Not surprisingly Gryffindor chose Harry Potter and Slytherin chose Malfoy."
+}
+
+if(game === starWarsArr) {
+  starWarsGame()
+} else if (game === harryPotterArr) {
+  // docBackground.style.backgroundImage = "url('./Images/harry-potter-30.jpg')"
+  harryPotterGame()
+}
 
 const shuffle = (arr) => {
 arr.sort(() => Math.random() - 0.5);

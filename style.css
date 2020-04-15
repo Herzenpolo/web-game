@@ -5,9 +5,11 @@
     color: #FFE81F;
     /* border: white 1px solid */
 }
+body #home {
+    background: black;
+}
 
 body {
-    background-image: url(./Images/784428-death-star-wallpaper-2560x1600-for-ipad-pro.jpg);
     background-size: cover;
 }
 header {
