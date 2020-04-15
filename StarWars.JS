@@ -220,7 +220,7 @@ var starWarsArr = [
         q:"Bail Organa is Princess Leia’s adoptive father. What is her adoptive mother’s name?",
         a:"Queen Breha Organa",
         btn1:"Queen Padme Amidala",
-        btn2:"Queen Beha Organa",
+        btn2:"Queen Breha Organa",
         btn3:"Queen Jamillia"
     },
 
