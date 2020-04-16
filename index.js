@@ -19,8 +19,9 @@ game = window[urlParams.get('game')] // window changes the string to the variabl
 
 const starWarsGame = () => {
   document.querySelector("#header-logo").src = './Images/Star_Wars_logo-1.png'
-  document.querySelector("#header-logo").style.width = "40%"
+  document.querySelector("#header-logo").style.width = "25%"
   docBackground.style.backgroundImage = "url('./Images/784428-death-star-wallpaper-2560x1600-for-ipad-pro.jpg')"
+  document.querySelector("audio").src = "./Imperial March.mp3"
   document.querySelector("#p1").innerHTML = "Welcome to Star Wars Trivia, "
   document.querySelector("#p2").innerHTML = "today you have been tasked with completing "
   document.querySelector("#p3").innerHTML = "the kessler run in 11 seconds or less and beat Han Solo's"
@@ -33,14 +34,16 @@ const starWarsGame = () => {
 const harryPotterGame = () => {
   document.querySelector("#header-logo").src = './Images/harry-potter-text-logo--13.png'
   document.querySelector("#header-logo").style.width = "10%"
-  docBackground.style.backgroundImage = "url('./Images/harry-potter-30.jpg')"
-  document.querySelector("#p1").innerHTML = "Traditionally the house cup"
-  document.querySelector("#p2").innerHTML = "goes to the House that accumulated the"
-  document.querySelector("#p3").innerHTML = "most amount of points in the course of the school year."
-  document.querySelector("#p4").innerHTML = "Some claim that Dumbledore and Professor Mcgonagall have rigged the "
-  document.querySelector("#p5").innerHTML = "competitions so Gryffindor can win the cup every year. This year, however,"
-  document.querySelector("#p6").innerHTML = "decided that the winner of the cup will be determined by the winner of a race"
-  document.querySelector("#p7").innerHTML = "between Gryffindor and Slytherin. Not surprisingly Gryffindor chose Harry Potter and Slytherin chose Malfoy."
+  docBackground.style.backgroundImage = "url('./Images/542752.jpg')"
+  document.querySelector("audio").src = "./Harry_Potter_Theme_Song_Hedwigs_Theme.mp3"
+  document.querySelector("#p7").innerHTML = "Traditionally the house cup goes to the House that accumulated the most amount of points in the course of the school year. Some claim that Dumbledore and Professor Mcgonagall have rigged the competitions so Gryffindor can win the cup every year. This year, however, decided that the winner of the cup will be determined by the winner of a race between Gryffindor and Slytherin. Not surprisingly Gryffindor chose Harry Potter and Slytherin chose Malfoy."
+  // document.querySelector("#p2").innerHTML = "goes to the House that accumulated the"
+  // document.querySelector("#p3").innerHTML = "most amount of points in the course of the school year."
+  // document.querySelector("#p4").innerHTML = "Some claim that Dumbledore and Professor Mcgonagall have rigged the "
+  // document.querySelector("#p5").innerHTML = "competitions so Gryffindor can win the cup every year. This year, however,"
+  // document.querySelector("#p6").innerHTML = "decided that the winner of the cup will be determined by the winner of a race"
+  // document.querySelector("#p7").innerHTML = "between Gryffindor and Slytherin. Not surprisingly Gryffindor chose Harry Potter and Slytherin chose Malfoy."
+  document.querySelector("body").classList.add("harryPotter")
 }
 
 if(game === starWarsArr) {
@@ -60,11 +63,23 @@ let random = shuffle(game)
 const question = () => {
 document.querySelector("#question").innerHTML = random[index].q
 document.querySelector(".btn1").value = random[index].btn1
-document.querySelector(".btn1").style.color = '#FFE81F'
+if (game === starWarsArr){
+  document.querySelector(".btn1").style.color = '#FFE81F'
+} else if (game === harryPotterArr) {
+  document.querySelector(".btn1").style.color = 'white'
+}
 document.querySelector(".btn2").value = random[index].btn2
-document.querySelector(".btn2").style.color = '#FFE81F'
+if (game === starWarsArr){
+  document.querySelector(".btn2").style.color = '#FFE81F'
+} else if (game === harryPotterArr) {
+  document.querySelector(".btn2").style.color = 'white'
+}
 document.querySelector(".btn3").value = random[index].btn3
-document.querySelector(".btn3").style.color = '#FFE81F'
+if (game === starWarsArr){
+  document.querySelector(".btn3").style.color = '#FFE81F'
+} else if (game === harryPotterArr) {
+  document.querySelector(".btn3").style.color = 'white'
+}
 
 }
 
@@ -149,7 +164,7 @@ const drawComputer = () => {
   if(game === starWarsArr) {
   ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 100, 75) //sets properties and size of the road immage
   } else if (game === harryPotterArr) {
-  ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 75, 75)
+  ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 50,100)
   }
 }
 

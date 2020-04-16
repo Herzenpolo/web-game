@@ -28,7 +28,7 @@ var harryPotterArr = [
         a: "The Troll's club",
         btn1: "A feather",
         btn2: "A tree",
-        btn3: "The troll's club"
+        btn3: "The Troll's club"
     },
     {
         q: "Which spell is also known as the full Body-Bind? ",
@@ -222,4 +222,4 @@ var harryPotterArr = [
   ]
 
   let harryPotterPlayerSrc = './Images/23974-1-harry-potter-broom-transparent-thumb.png'
-  let harryPotterComputerSrc = './Images/d8wfx4u-c855013f-623a-452d-9967-b831ac5d216a.png'
+  let harryPotterComputerSrc = './Images/NicePng_draco-malfoy-png_8423301.png'
