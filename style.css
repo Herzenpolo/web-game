@@ -199,14 +199,14 @@ hr {
 
 .player-score {
     font-family: fantasy;
-    font-size: 1em;
+    font-size: 2em;
     text-align: center;
     color: white;
 }
 
-.player-score {
+.computer-score {
     font-family: fantasy;
-    font-size: 1em;
+    font-size: 2em;
     text-align: center;
     color: white;
 }
@@ -272,4 +272,9 @@ hr {
     color: white;
     font-family: harryPotter;
     font-size: 1em;
+}
+
+#scores {
+    font-size: 1em;
+    color: white;
 }

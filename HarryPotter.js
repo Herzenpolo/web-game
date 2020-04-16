@@ -1,7 +1,7 @@
 var harryPotterArr = [
     {
         q: "What happens when Hagrid casts a spell on Dudley?",
-        a: "He grows a tail",
+        a: "He grows a pig tail",
         btn1: "He grows a pig tail",
         btn2: "He grows a pig snout",
         btn3: "He grows pig ears"

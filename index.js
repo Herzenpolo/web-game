@@ -46,6 +46,8 @@ const harryPotterGame = () => {
   document.querySelector("body").classList.add("harryPotter")
 }
 
+
+
 if(game === starWarsArr) {
   starWarsGame()
 } else if (game === harryPotterArr) {
@@ -82,6 +84,8 @@ if (game === starWarsArr){
 }
 
 }
+
+document.querySelector("#scores > span.computer-score").style.color = 'white'
 
 const rightAnswer = () => {
   answer=random[index].a
@@ -237,7 +241,7 @@ function animate(){
     player.y = 500 
     computer.y = 500
     playerScore++
-    document.querySelector(".player-score").innerHTML = `Player: ${playerScore}`
+    document.querySelector(".player-score").innerHTML = `Player : ${playerScore} |  `
   
 }
 if(detectCollisioncomputer()){
@@ -245,12 +249,12 @@ if(detectCollisioncomputer()){
   computer.y = 500
   player.y = 500
   computerScore++
-  document.querySelector(".computer-score").innerHTML = `Computer: ${computerScore}`
+  document.querySelector(".computer-score").innerHTML = `Computer : ${computerScore}`
 
 }
 
 if(computerScore === 2) {
-  alert("Youu've lost this round, ty again soon")
+  alert("You've lost this round, ty again soon")
   cancelAnimationFrame(animateId)
 }
 
