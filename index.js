@@ -164,14 +164,15 @@ const drawComputer = () => {
   ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 100, 75) //sets properties and size of the road immage
   } else if (game === harryPotterArr) {
   ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 50,100)
-  }
 }
+  }
 
   computer ={
     x: 250,
     y: j,
     image: computerImg  // makes an object of the road image, we can refer to this later 
   }
+
 
   let finishLineImg = new Image ()
   finishLineImg.src = './Images/Finish-Line-PNG-HD.png'
@@ -220,6 +221,7 @@ ctx.clearRect(0, 0, canvas.width, canvas.height) //clears the canvas - flipping 
 let playerScore = 0
 let computerScore = 0
 
+
 function animate(){ 
 
   animateId = window.requestAnimationFrame(animate)
@@ -249,12 +251,12 @@ if(detectCollisioncomputer()){
 }
 
 if(computerScore === 2) {
-  alert("You've lost this round, ty again soon")
+  alert("You've lost this round, try again soon")
   cancelAnimationFrame(animateId)
 }
 
 if(playerScore === 2) {
-  alert("You did it!")
+  alert("You did it! you won")
   cancelAnimationFrame(animateId)
 }
 
@@ -265,4 +267,3 @@ if(playerScore === 2) {
 
   animate()
   };
-
