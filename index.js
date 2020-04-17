@@ -41,13 +41,21 @@ const harryPotterGame = () => {
   document.querySelector("body").classList.add("harryPotter")
 }
 
-
+const beerGame = () => {
+  document.querySelector("#header-logo").src = './Images/Duff_Beer-logo-A7BA6E5125-seeklogo.com.png'
+  document.querySelector("#header-logo").style.width = "10%"
+  docBackground.style.backgroundImage = "url('./Images/1105647.jpg')"
+  document.querySelector("audio").src = "./Harry_Potter_Theme_Song_Hedwigs_Theme.mp3"
+  document.querySelector("#p7").innerHTML = "Traditionally the house cup goes to the House that accumulated the most amount of points in the course of the school year. Some claim that Dumbledore and Professor Mcgonagall have rigged the competitions so Gryffindor can win the cup every year. This year, however, decided that the winner of the cup will be determined by the winner of a race between Gryffindor and Slytherin. Not surprisingly Gryffindor chose Harry Potter and Slytherin chose Malfoy."
+  document.querySelector("body").classList.add("harryPotter")
+}
 
 if(game === starWarsArr) {
   starWarsGame()
 } else if (game === harryPotterArr) {
-  // docBackground.style.backgroundImage = "url('./Images/harry-potter-30.jpg')"
   harryPotterGame()
+} else if (game === beerArr) {
+  beerGame()
 }
 
 const shuffle = (arr) => {
