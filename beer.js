@@ -197,10 +197,10 @@ var beerArr = [
     },
     {
         q:"How were pale ales invented?",
-        a:"The English added Hops to keep the beer from going bad.",
-        btn1:"This is a new fad created by craft breweries",
-        btn2:"The English added Hops to keep the beer from going bad.",
-        btn3:"The English added Hops to see what would happen."
+        a:"To keep beer fresh.",
+        btn1:"To create something new",
+        btn2:"To keep beer fresh.",
+        btn3:"It was an experiment."
     },
     {
         q:"How expensive is the most expensive beer?",
