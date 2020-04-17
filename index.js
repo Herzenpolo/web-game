@@ -45,9 +45,9 @@ const beerGame = () => {
   document.querySelector("#header-logo").src = './Images/Duff_Beer-logo-A7BA6E5125-seeklogo.com.png'
   document.querySelector("#header-logo").style.width = "10%"
   docBackground.style.backgroundImage = "url('./Images/1105647.jpg')"
-  document.querySelector("audio").src = "./Harry_Potter_Theme_Song_Hedwigs_Theme.mp3"
-  document.querySelector("#p7").innerHTML = "Traditionally the house cup goes to the House that accumulated the most amount of points in the course of the school year. Some claim that Dumbledore and Professor Mcgonagall have rigged the competitions so Gryffindor can win the cup every year. This year, however, decided that the winner of the cup will be determined by the winner of a race between Gryffindor and Slytherin. Not surprisingly Gryffindor chose Harry Potter and Slytherin chose Malfoy."
-  document.querySelector("body").classList.add("harryPotter")
+  document.querySelector("#p7").innerHTML = "In south florida (and the caribbean in general) we know that a good beer is a cold beer, you can keep this beer cold by answering the questions! But don't worry we have a remedy, make sure you answer the questions below and the more answers you get right the longer your beer stays cold! Press go and get to answering, after all, I only know of one person that likes warm beer..."
+  document.querySelector("body").classList.add("beer")
+
 }
 
 if(game === starWarsArr) {
@@ -72,17 +72,23 @@ if (game === starWarsArr){
   document.querySelector(".btn1").style.color = '#FFE81F'
 } else if (game === harryPotterArr) {
   document.querySelector(".btn1").style.color = 'white'
+} else if (game === beerArr) {
+  document.querySelector(".btn1").style.color = 'white'
 }
 document.querySelector(".btn2").value = random[index].btn2
 if (game === starWarsArr){
   document.querySelector(".btn2").style.color = '#FFE81F'
 } else if (game === harryPotterArr) {
   document.querySelector(".btn2").style.color = 'white'
+} else if (game === beerArr) {
+  document.querySelector(".btn2").style.color = 'white'
 }
 document.querySelector(".btn3").value = random[index].btn3
 if (game === starWarsArr){
   document.querySelector(".btn3").style.color = '#FFE81F'
 } else if (game === harryPotterArr) {
+  document.querySelector(".btn3").style.color = 'white'
+} else if (game === beerArr) {
   document.querySelector(".btn3").style.color = 'white'
 }
 
@@ -133,6 +139,8 @@ document.querySelector("#instructions > input").addEventListener("click", functi
   playerImg.src = starWarsPlayerSrc
   } else if (game === harryPotterArr) {
   playerImg.src = harryPotterPlayerSrc
+  } else if (game === beerArr) {
+    playerImg.src = beerPlayer
   }
     
   playerImg.onload = function(e) {
@@ -144,6 +152,8 @@ const drawPlayer = () => {
     ctx.drawImage(player.image, player.x, player.y, 150, 100) //sets properties and size of the road immage
   } else if (game === harryPotterArr) {
     ctx.drawImage(player.image, player.x, player.y, 100, 100)
+  } else if (game === beerArr) {
+    ctx.drawImage(player.image, player.x, player.y, 75, 100)
   }
 }
 
@@ -161,6 +171,8 @@ const drawPlayer = () => {
     computerImg.src = starWarsComputerSrc
   } else if (game === harryPotterArr) {
     computerImg.src = harryPotterComputerSrc
+  } else if (game === beerArr) {
+    computerImg.src = beerComputer
   }
   
 computerImg.onload = function(e) {
@@ -172,6 +184,8 @@ const drawComputer = () => {
   ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 100, 75) //sets properties and size of the road immage
   } else if (game === harryPotterArr) {
   ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 50,100)
+} else if (game === beerArr){
+  ctx.drawImage(computer.image, computer.x, computer.y -= 0.2, 100,100)
 }
   }
 

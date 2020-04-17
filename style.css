@@ -221,13 +221,94 @@ hr {
     color: white;
 }
 
+.beer .player-score {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
+.beer .computer-score {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
 @font-face {
     font-family: harryPotter;
     src: url('./Lumoslatino-XA8K.ttf');
 }
 
-.harryPotter {
+.beer {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.beer #p1 {
+    color: white;
+}
+
+.beer #p2 {
+    color: white;
+}
+
+.beer #p3 {
+    color: white;
+}
+
+.beer #p4 {
+    color: white;
+}
+
+.beer #p5 {
+    color: white;
+}
+
+.beer #p6 {
+    color: white;
+}
+
+.beer #p7 {
+    color: white;
+    font-size: 3em;
+    width: 100%;
+    letter-spacing: 0.2em;
+    line-height: 1em;
+    width: 50%;
+    display: flex;
+    align-self: center;
+}
+
+.beer .start-btn {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 5px white
+}
+
+.beer #question {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+.beer .btn {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.beer #scores {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.harryPotter .btn {
+    color: white;
     font-family: harryPotter;
+    font-size: 1em;
+}
+
+#scores {
+    font-size: 1em;
     color: white;
 }
 
@@ -283,12 +364,3 @@ hr {
     font-family: harryPotter;
     font-size: 1em;
 }
-
-#scores {
-    font-size: 1em;
-    color: white;
-}
-
-
-
-  

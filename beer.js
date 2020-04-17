@@ -35,7 +35,7 @@ var beerArr = [
         btn3:"Both ales and lagers ferment at the same temperature from the bottom."
     },
     {
-        q:"The oldest drinkable beer was found in a ship wreck and was _____ years ol",
+        q:"The oldest drinkable beer was found in a ship wreck and was _____ years old",
         a:"200 years old",
         btn1:"10 years old",
         btn2:"100 years old",
@@ -224,3 +224,6 @@ var beerArr = [
         btn3:"1935"
     }
 ]
+
+let beerPlayer = './Images/beer_PNG2372.png'
+let beerComputer =  './Images/5-2-sun-png-hd-thumb.png'
